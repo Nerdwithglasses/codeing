@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    :root {
+      --sw: 75px;
+    }
+      .black{
+        background-color: black;
+        height: var(--sw);
+        width: var(--sw);
+        padding: 0px, 0px, 0px, 0px;
+      }
+      .white{
+        background-color: white;
+        height: var(--sw);
+        width: var(--sw);
+        padding: 0px, 0px, 0px, 0px;
+      }
+      #board{
+        width: 8*var(--sw);
+        height: 8*var(--sw);
+        border: solid #000;
+        border-width: thin;
+      }
+      .row{
+        display: flex;
+      }
+      .center {
+        display: block;
+        margin: auto;
+      }
+      .king{} .queen{} .bishop{} .knight{} .rook{} .pawn{} .none{}
+    </style>
+    <meta charset="utf-8">
+    <title>Chess</title>
+  </head>
+  <body>
+    <div id="board">
+      <div class="row">
+        <button type="button" class="white" id="a1" onclick="pieceMoves(this.id, this.className)"> <img id="ia1" src=''> </button>
+        <button type="button" class="black" id="a2" onclick="pieceMoves(this.id, this.className)"> <img id="ia2" src=''> </button>
+        <button type="button" class="white" id="a3" onclick="pieceMoves(this.id, this.className)"> <img id="ia3" src=''> </button>
+        <button type="button" class="black" id="a4" onclick="pieceMoves(this.id, this.className)"> <img id="ia4" src=''> </button>
+        <button type="button" class="white" id="a5" onclick="pieceMoves(this.id, this.className)"> <img id="ia5" src=''> </button>
+        <button type="button" class="black" id="a6" onclick="pieceMoves(this.id, this.className)"> <img id="ia6" src=''> </button>
+        <button type="button" class="white" id="a7" onclick="pieceMoves(this.id, this.className)"> <img id="ia7" src=''> </button>
+        <button type="button" class="black" id="a8" onclick="pieceMoves(this.id, this.className)"> <img id="ia8" src=''> </button>
+      </div>
+      <div class="row">
+        <button type="button" class="black" id="b1" onclick="pieceMoves(this.id, this.className)"> <img id="ib1" src=''> </button>
+        <button type="button" class="white" id="b2" onclick="pieceMoves(this.id, this.className)"> <img id="ib2" src=''> </button>
+        <button type="button" class="black" id="b3" onclick="pieceMoves(this.id, this.className)"> <img id="ib3" src=''> </button>
+        <button type="button" class="white" id="b4" onclick="pieceMoves(this.id, this.className)"> <img id="ib4" src=''> </button>
+        <button type="button" class="black" id="b5" onclick="pieceMoves(this.id, this.className)"> <img id="ib5" src=''> </button>
+        <button type="button" class="white" id="b6" onclick="pieceMoves(this.id, this.className)"> <img id="ib6" src=''> </button>
+        <button type="button" class="black" id="b7" onclick="pieceMoves(this.id, this.className)"> <img id="ib7" src=''> </button>
+        <button type="button" class="white" id="b8" onclick="pieceMoves(this.id, this.className)"> <img id="ib8" src=''> </button>
+      </div>
+      <div class="row">
+        <button type="button" class="white" id="c1" onclick="pieceMoves(this.id, this.className)"> <img id="ic1" src=''> </button>
+        <button type="button" class="black" id="c2" onclick="pieceMoves(this.id, this.className)"> <img id="ic2" src=''> </button>
+        <button type="button" class="white" id="c3" onclick="pieceMoves(this.id, this.className)"> <img id="ic3" src=''> </button>
+        <button type="button" class="black" id="c4" onclick="pieceMoves(this.id, this.className)"> <img id="ic4" src=''> </button>
+        <button type="button" class="white" id="c5" onclick="pieceMoves(this.id, this.className)"> <img id="ic5" src=''> </button>
+        <button type="button" class="black" id="c6" onclick="pieceMoves(this.id, this.className)"> <img id="ic6" src=''> </button>
+        <button type="button" class="white" id="c7" onclick="pieceMoves(this.id, this.className)"> <img id="ic7" src=''> </button>
+        <button type="button" class="black" id="c8" onclick="pieceMoves(this.id, this.className)"> <img id="ic8" src=''> </button>
+      </div>
+      <div class="row">
+        <button type="button" class="black" id="d1" onclick="pieceMoves(this.id, this.className)"> <img id="id1" src=''> </button>
+        <button type="button" class="white" id="d2" onclick="pieceMoves(this.id, this.className)"> <img id="id2" src=''> </button>
+        <button type="button" class="black" id="d3" onclick="pieceMoves(this.id, this.className)"> <img id="id3" src=''> </button>
+        <button type="button" class="white" id="d4" onclick="pieceMoves(this.id, this.className)"> <img id="id4" src=''> </button>
+        <button type="button" class="black" id="d5" onclick="pieceMoves(this.id, this.className)"> <img id="id5" src=''> </button>
+        <button type="button" class="white" id="d6" onclick="pieceMoves(this.id, this.className)"> <img id="id6" src=''> </button>
+        <button type="button" class="black" id="d7" onclick="pieceMoves(this.id, this.className)"> <img id="id7" src=''> </button>
+        <button type="button" class="white" id="d8" onclick="pieceMoves(this.id, this.className)"> <img id="id8" src=''> </button>
+      </div>
+      <div class="row">
+        <button type="button" class="white" id="e1" onclick="pieceMoves(this.id, this.className)"> <img id="ie1" src=''> </button>
+        <button type="button" class="black" id="e2" onclick="pieceMoves(this.id, this.className)"> <img id="ie2" src=''> </button>
+        <button type="button" class="white" id="e3" onclick="pieceMoves(this.id, this.className)"> <img id="ie3" src=''> </button>
+        <button type="button" class="black" id="e4" onclick="pieceMoves(this.id, this.className)"> <img id="ie4" src=''> </button>
+        <button type="button" class="white" id="e5" onclick="pieceMoves(this.id, this.className)"> <img id="ie5" src=''> </button>
+        <button type="button" class="black" id="e6" onclick="pieceMoves(this.id, this.className)"> <img id="ie6" src=''> </button>
+        <button type="button" class="white" id="e7" onclick="pieceMoves(this.id, this.className)"> <img id="ie7" src=''> </button>
+        <button type="button" class="black" id="e8" onclick="pieceMoves(this.id, this.className)"> <img id="ie8" src=''> </button>
+      </div>
+      <div class="row">
+        <button type="button" class="black" id="f1" onclick="pieceMoves(this.id, this.className)"> <img id="if1" src=''> </button>
+        <button type="button" class="white" id="f2" onclick="pieceMoves(this.id, this.className)"> <img id="if2" src=''> </button>
+        <button type="button" class="black" id="f3" onclick="pieceMoves(this.id, this.className)"> <img id="if3" src=''> </button>
+        <button type="button" class="white" id="f4" onclick="pieceMoves(this.id, this.className)"> <img id="if4" src=''> </button>
+        <button type="button" class="black" id="f5" onclick="pieceMoves(this.id, this.className)"> <img id="if5" src=''> </button>
+        <button type="button" class="white" id="f6" onclick="pieceMoves(this.id, this.className)"> <img id="if6" src=''> </button>
+        <button type="button" class="black" id="f7" onclick="pieceMoves(this.id, this.className)"> <img id="if7" src=''> </button>
+        <button type="button" class="white" id="f8" onclick="pieceMoves(this.id, this.className)"> <img id="if8" src=''> </button>
+      </div>
+      <div class="row">
+        <button type="button" class="white" id="g1" onclick="pieceMoves(this.id, this.className)"> <img id="ig1" src=''> </button>
+        <button type="button" class="black" id="g2" onclick="pieceMoves(this.id, this.className)"> <img id="ig2" src=''> </button>
+        <button type="button" class="white" id="g3" onclick="pieceMoves(this.id, this.className)"> <img id="ig3" src=''> </button>
+        <button type="button" class="black" id="g4" onclick="pieceMoves(this.id, this.className)"> <img id="ig4" src=''> </button>
+        <button type="button" class="white" id="g5" onclick="pieceMoves(this.id, this.className)"> <img id="ig5" src=''> </button>
+        <button type="button" class="black" id="g6" onclick="pieceMoves(this.id, this.className)"> <img id="ig6" src=''> </button>
+        <button type="button" class="white" id="g7" onclick="pieceMoves(this.id, this.className)"> <img id="ig7" src=''> </button>
+        <button type="button" class="black" id="g8" onclick="pieceMoves(this.id, this.className)"> <img id="ig8" src=''> </button>
+      </div>
+      <div class="row">
+        <button type="button" class="black" id="h1" onclick="pieceMoves(this.id, this.className)"> <img id="ih1" src=''> </button>
+        <button type="button" class="white" id="h2" onclick="pieceMoves(this.id, this.className)"> <img id="ih2" src=''> </button>
+        <button type="button" class="black" id="h3" onclick="pieceMoves(this.id, this.className)"> <img id="ih3" src=''> </button>
+        <button type="button" class="white" id="h4" onclick="pieceMoves(this.id, this.className)"> <img id="ih4" src=''> </button>
+        <button type="button" class="black" id="h5" onclick="pieceMoves(this.id, this.className)"> <img id="ih5" src=''> </button>
+        <button type="button" class="white" id="h6" onclick="pieceMoves(this.id, this.className)"> <img id="ih6" src=''> </button>
+        <button type="button" class="black" id="h7" onclick="pieceMoves(this.id, this.className)"> <img id="ih7" src=''> </button>
+        <button type="button" class="white" id="h8" onclick="pieceMoves(this.id, this.className)"> <img id="ih8" src=''> </button>
+      </div>
+    </div>
+    <button type="button" onclick="start()">New Game</button>
+  </body>
+  <script src="chess.js"></script>
+</html>
