@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <style>
+  body {
+    background-color: #1d77a1;
+    color: white;
+    font-family: cursive;
+    text-align: center;
+    font-size: 32px;
+  }
+  button {
+    background-color: black;
+  }
+  .black{
+      background-color: black;
+      height: 50px;
+      width: 50px;
+      padding: 0px, 0px, 0px, 0px;
+    }
+  </style>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+  </head>
+  <body>
+    <br><br><br>
+    Hello world- this is a bad Calculator
+    <form>
+      Value 1: <input type="text" id="val1"><br>
+      Value 2: <input type="text" id="val2"><br>
+      Operation: <select id="operator">
+        <option value="add">Add</option>
+        <option value="min">Subtract</option>
+        <option value="mul">Multiply</option>
+        <option value="div">Divide</option>
+        <option value="exp">Exponential</option>
+        <option value="sin">Sine</option>
+        <option value="cos">Cosine</option>
+        <option value="tan">Tangent</option>
+      </select>
+      <button class="black" type="button" onclick="calc()"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg"></button>
+    </form>
+    <div id="result"></div>
+  </body>
+  <script src="calc.js"> </script>
+</html>
